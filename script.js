@@ -1,38 +1,66 @@
-// ฟังก์ชันคำนวณคะแนนเฉลี่ย
-function calculateAverage() {
+// 1️⃣ ตรวจสอบเลขคู่หรือคี่
+function checkEvenOdd() {
+    let number = 7;
 
-    let score1 = 80;
-    let score2 = 75;
-    let score3 = 90;
+    let result = "";
 
-    let average = (score1 + score2 + score3) / 3;
-
-    let result = `
-คะแนนวิชา 1: ${score1}
-คะแนนวิชา 2: ${score2}
-คะแนนวิชา 3: ${score3}
-คะแนนเฉลี่ย: ${average.toFixed(2)}
-    `;
+    if (number % 2 === 0) {
+        result = number + " เป็นเลขคู่";
+    } else {
+        result = number + " เป็นเลขคี่";
+    }
 
     document.getElementById("output").textContent = result;
 }
 
 
-// ฟังก์ชันคำนวณราคาสินค้ารวม VAT 7%
-function calculateVAT() {
+// 2️⃣ สูตรคูณแม่ 2 (for) และแม่ 3 (while)
+function showMultiplication() {
 
-    let productName = "โน้ตบุ๊ก";
-    let price = 25000;
+    let result = "สูตรคูณแม่ 2 (for loop)\n";
 
-    let vat = price * 0.07;
-    let totalPrice = price + vat;
+    for (let i = 1; i <= 12; i++) {
+        result += `2 x ${i} = ${2 * i}\n`;
+    }
 
-    let result = `
-ชื่อสินค้า: ${productName}
-ราคาสินค้า: ${price} บาท
-VAT 7%: ${vat.toFixed(2)} บาท
-ราคารวม VAT: ${totalPrice.toFixed(2)} บาท
-    `;
+    result += "\nสูตรคูณแม่ 3 (while loop)\n";
+
+    let j = 1;
+    while (j <= 12) {
+        result += `3 x ${j} = ${3 * j}\n`;
+        j++;
+    }
+
+    document.getElementById("output").textContent = result;
+}
+
+
+// 3️⃣ นับถอยหลังจาก 10 ถึง 1
+function countdown() {
+
+    let result = "นับถอยหลัง\n";
+
+    for (let i = 10; i >= 1; i--) {
+        result += i + "\n";
+    }
+
+    document.getElementById("output").textContent = result;
+}
+
+
+// 4️⃣ ตรวจสอบช่วงวัย
+function checkAge() {
+
+    let age = 20;
+    let result = "";
+
+    if (age <= 12) {
+        result = "อายุ " + age + " ปี → วัยเด็ก";
+    } else if (age <= 19) {
+        result = "อายุ " + age + " ปี → วัยรุ่น";
+    } else {
+        result = "อายุ " + age + " ปี → วัยผู้ใหญ่";
+    }
 
     document.getElementById("output").textContent = result;
 }
