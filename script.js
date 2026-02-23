@@ -1,66 +1,74 @@
-// 1️⃣ ตรวจสอบเลขคู่หรือคี่
-function checkEvenOdd() {
-    let number = 7;
+// 1️⃣ Function คำนวณ BMI
+function calculateBMI(weight, height) {
+    return weight / (height * height);
+}
 
-    let result = "";
-
-    if (number % 2 === 0) {
-        result = number + " เป็นเลขคู่";
+// Function จัดกลุ่ม BMI
+function getBMICategory(bmi) {
+    if (bmi < 18.5) {
+        return "ผอมเกินไป  ควรเพิ่มน้ำหนัก";
+    } else if (bmi < 24.9) {
+        return "ปกติ  สุขภาพดีมาก!";
+    } else if (bmi < 29.9) {
+        return "น้ำหนักเกิน  ควรควบคุมอาหาร";
     } else {
-        result = number + " เป็นเลขคี่";
+        return "อ้วน  ควรออกกำลังกายและดูแลสุขภาพ";
+    }
+}
+
+function handleBMI() {
+    let weight = parseFloat(document.getElementById("weight").value);
+    let height = parseFloat(document.getElementById("height").value);
+
+    if (!weight || !height) {
+        document.getElementById("output").textContent =
+            "กรุณากรอกข้อมูลให้ครบก่อนนะ ";
+        return;
     }
 
-    document.getElementById("output").textContent = result;
+    let bmi = calculateBMI(weight, height);
+    let category = getBMICategory(bmi);
+
+    document.getElementById("output").textContent =
+        `ค่า BMI ของคุณคือ: ${bmi.toFixed(2)}
+สถานะ: ${category}`;
 }
 
 
-// 2️⃣ สูตรคูณแม่ 2 (for) และแม่ 3 (while)
-function showMultiplication() {
-
-    let result = "สูตรคูณแม่ 2 (for loop)\n";
-
-    for (let i = 1; i <= 12; i++) {
-        result += `2 x ${i} = ${2 * i}\n`;
-    }
-
-    result += "\nสูตรคูณแม่ 3 (while loop)\n";
-
-    let j = 1;
-    while (j <= 12) {
-        result += `3 x ${j} = ${3 * j}\n`;
-        j++;
-    }
-
-    document.getElementById("output").textContent = result;
-}
-
-
-// 3️⃣ นับถอยหลังจาก 10 ถึง 1
-function countdown() {
-
-    let result = "นับถอยหลัง\n";
-
-    for (let i = 10; i >= 1; i--) {
-        result += i + "\n";
-    }
-
-    document.getElementById("output").textContent = result;
-}
-
-
-// 4️⃣ ตรวจสอบช่วงวัย
-function checkAge() {
-
-    let age = 20;
-    let result = "";
-
+// 2️⃣ Function ทักทายตามอายุ
+function greetUser(name, age) {
     if (age <= 12) {
-        result = "อายุ " + age + " ปี → วัยเด็ก";
+        return "สวัสดีเด็กน้อย " + name  ;
     } else if (age <= 19) {
-        result = "อายุ " + age + " ปี → วัยรุ่น";
+        return "หวัดดีวัยรุ่น " + name  ;
     } else {
-        result = "อายุ " + age + " ปี → วัยผู้ใหญ่";
+        return "สวัสดีครับ/ค่ะ คุณ " + name ;
     }
+}
 
-    document.getElementById("output").textContent = result;
+function handleGreeting() {
+    let name = document.getElementById("name").value;
+    let age = parseInt(document.getElementById("age").value);
+
+    let message = greetUser(name, age);
+
+    document.getElementById("output").textContent = message;
+}
+
+
+// 3️⃣ Function ตรวจสอบรหัสผ่าน
+function checkPassword(password) {
+    return password.length > 8;
+}
+
+function handlePassword() {
+    let password = document.getElementById("password").value;
+
+    if (checkPassword(password)) {
+        document.getElementById("output").textContent =
+            "รหัสผ่านปลอดภัย ✅";
+    } else {
+        document.getElementById("output").textContent =
+            "รหัสผ่านต้องยาวมากกว่า 8 ตัวอักษร ❌";
+    }
 }

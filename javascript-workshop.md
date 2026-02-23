@@ -579,11 +579,55 @@ process(function() {
 ### บันทึกผลการทดลอง 2.4.1
 ```html
 [บันทึกโค้ด ที่นี่]
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>แบบทดสอบ 2.4.1 Functions</title>
+</head>
+<body>
+
+    <h2>แบบทดสอบ 2.4.1 - Functions</h2>
+
+    <!-- BMI -->
+    <h3>คำนวณ BMI</h3>
+    น้ำหนัก (กก.): <input type="number" id="weight"><br><br>
+    ส่วนสูง (เมตร): <input type="number" step="0.01" id="height"><br><br>
+    <button onclick="handleBMI()">คำนวณ BMI</button>
+
+    <hr>
+
+    <!-- Greeting -->
+    <h3>ทักทายตามอายุ</h3>
+    ชื่อ: <input type="text" id="name"><br><br>
+    อายุ: <input type="number" id="age"><br><br>
+    <button onclick="handleGreeting()">แสดงคำทักทาย</button>
+
+    <hr>
+
+    <!-- Password -->
+    <h3>ตรวจสอบรหัสผ่าน</h3>
+    รหัสผ่าน: <input type="password" id="password"><br><br>
+    <button onclick="handlePassword()">ตรวจสอบรหัสผ่าน</button>
+
+    <hr>
+
+    <pre id="output"></pre>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
 ```
 **รูปผลการทดลอง**
-![รูปผลการทดลองที่ 2.4.1](images/image.png)
 
+![alt text](images/5-1.png)
 
+![alt text](images/5-2.png)
+
+![alt text](images/5-3.png)
+
+![alt text](images/5-4.png)
 
 #### 2.4.2 Arrow Function
 Arrow Function เป็นวิธีการเขียน function แบบสั้นๆ ที่มาพร้อมกับ JavaScript เวอร์ชัน ES6
