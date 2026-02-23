@@ -2,36 +2,23 @@
 <html lang="th">
 <head>
     <meta charset="UTF-8">
-    <title>แบบทดสอบ 2.4.2 Arrow Function</title>
+    <title>โปรแกรมคำนวณ BMI</title>
 </head>
 <body>
 
-    <h2>แบบทดสอบ 2.4.2 (Arrow Function)</h2>
+    <h2>คำนวณค่า BMI</h2>
 
-    <!-- BMI -->
-    <h3>คำนวณ BMI</h3>
-    น้ำหนัก (กก.): <input type="number" id="weight"><br><br>
-    ส่วนสูง (เซนติเมตร): <input type="number" id="height"><br><br>
-    <button onclick="handleBMI()">คำนวณ BMI</button>
+    น้ำหนัก (กิโลกรัม): 
+    <input type="number" id="weight"><br><br>
 
-    <hr>
+    ส่วนสูง (เซนติเมตร): 
+    <input type="number" id="height"><br><br>
 
-    <!-- Greeting -->
-    <h3>ทักทายตามอายุ</h3>
-    ชื่อ: <input type="text" id="name"><br><br>
-    อายุ: <input type="number" id="age"><br><br>
-    <button onclick="handleGreeting()">แสดงคำทักทาย</button>
+    <button onclick="handleBMI()">คำนวณ</button>
 
     <hr>
 
-    <!-- Password -->
-    <h3>ตรวจสอบรหัสผ่าน</h3>
-    รหัสผ่าน: <input type="password" id="password"><br><br>
-    <button onclick="handlePassword()">ตรวจสอบ</button>
-
-    <hr>
-
-    <pre id="output"></pre>
+    <h3 id="result"></h3>
 
     <script src="script.js"></script>
 

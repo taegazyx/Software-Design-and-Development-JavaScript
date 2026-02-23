@@ -783,9 +783,36 @@ console.log("เลขคู่:", evenNumbers); // [2, 4]
 ### บันทึกผลการทดลอง 3.1
 ```html
 [บันทึกโค้ด ที่นี่]
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>โปรแกรมคำนวณ BMI</title>
+</head>
+<body>
+
+    <h2>คำนวณค่า BMI</h2>
+
+    น้ำหนัก (กิโลกรัม): 
+    <input type="number" id="weight"><br><br>
+
+    ส่วนสูง (เซนติเมตร): 
+    <input type="number" id="height"><br><br>
+
+    <button onclick="handleBMI()">คำนวณ</button>
+
+    <hr>
+
+    <h3 id="result"></h3>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
 ```
 **รูปผลการทดลอง**
-![รูปผลการทดลองที่ 3.1](images/image.png)
+
+![alt text](images/7.png)
 
 ## การทดลองที่ 3.2 : การสร้างฟอร์มสำหรับจองห้องพัก
 การสร้างฟอร์มลงทะเบียนเพื่อรวบรวมข้อมูลที่จำเป็นสำหรับการจองห้องพัก
