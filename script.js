@@ -1,74 +1,57 @@
-// 1️⃣ Function คำนวณ BMI
-function calculateBMI(weight, height) {
-    return weight / (height * height);
-}
+// 🔹 1️⃣ Arrow Function คำนวณ BMI
+const calculateBMI = (weight, heightCm) => {
+    const heightM = heightCm / 100;
+    return weight / (heightM * heightM);
+};
 
-// Function จัดกลุ่ม BMI
-function getBMICategory(bmi) {
-    if (bmi < 18.5) {
-        return "ผอมเกินไป  ควรเพิ่มน้ำหนัก";
-    } else if (bmi < 24.9) {
-        return "ปกติ  สุขภาพดีมาก!";
-    } else if (bmi < 29.9) {
-        return "น้ำหนักเกิน  ควรควบคุมอาหาร";
+// 🔹 2️⃣ Arrow Function ทักทายตามอายุ
+const greetUser = (name, age) => {
+    if (age <= 12) {
+        return `สวัสดีเด็กน้อย ${name} `;
+    } else if (age <= 19) {
+        return `หวัดดีวัยรุ่น ${name} `;
     } else {
-        return "อ้วน  ควรออกกำลังกายและดูแลสุขภาพ";
+        return `สวัสดีคุณ ${name} `;
     }
-}
+};
 
-function handleBMI() {
-    let weight = parseFloat(document.getElementById("weight").value);
-    let height = parseFloat(document.getElementById("height").value);
+// 🔹 3️⃣ Arrow Function ตรวจสอบรหัสผ่าน
+const checkPassword = password => password.length > 8;
+
+
+// ===== ฟังก์ชันควบคุมปุ่ม =====
+
+const handleBMI = () => {
+    const weight = parseFloat(document.getElementById("weight").value);
+    const height = parseFloat(document.getElementById("height").value);
 
     if (!weight || !height) {
         document.getElementById("output").textContent =
-            "กรุณากรอกข้อมูลให้ครบก่อนนะ ";
+            "กรุณากรอกข้อมูลให้ครบก่อน ";
         return;
     }
 
-    let bmi = calculateBMI(weight, height);
-    let category = getBMICategory(bmi);
+    const bmi = calculateBMI(weight, height);
 
     document.getElementById("output").textContent =
-        `ค่า BMI ของคุณคือ: ${bmi.toFixed(2)}
-สถานะ: ${category}`;
-}
+        `ค่า BMI ของคุณคือ: ${bmi.toFixed(2)}`;
+};
 
 
-// 2️⃣ Function ทักทายตามอายุ
-function greetUser(name, age) {
-    if (age <= 12) {
-        return "สวัสดีเด็กน้อย " + name  ;
-    } else if (age <= 19) {
-        return "หวัดดีวัยรุ่น " + name  ;
-    } else {
-        return "สวัสดีครับ/ค่ะ คุณ " + name ;
-    }
-}
+const handleGreeting = () => {
+    const name = document.getElementById("name").value;
+    const age = parseInt(document.getElementById("age").value);
 
-function handleGreeting() {
-    let name = document.getElementById("name").value;
-    let age = parseInt(document.getElementById("age").value);
-
-    let message = greetUser(name, age);
-
-    document.getElementById("output").textContent = message;
-}
+    document.getElementById("output").textContent =
+        greetUser(name, age);
+};
 
 
-// 3️⃣ Function ตรวจสอบรหัสผ่าน
-function checkPassword(password) {
-    return password.length > 8;
-}
+const handlePassword = () => {
+    const password = document.getElementById("password").value;
 
-function handlePassword() {
-    let password = document.getElementById("password").value;
-
-    if (checkPassword(password)) {
-        document.getElementById("output").textContent =
-            "รหัสผ่านปลอดภัย ✅";
-    } else {
-        document.getElementById("output").textContent =
-            "รหัสผ่านต้องยาวมากกว่า 8 ตัวอักษร ❌";
-    }
-}
+    document.getElementById("output").textContent =
+        checkPassword(password)
+            ? "รหัสผ่านปลอดภัย ✅"
+            : "รหัสผ่านต้องมากกว่า 8 ตัวอักษร ❌";
+};

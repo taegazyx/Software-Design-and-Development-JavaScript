@@ -667,10 +667,55 @@ console.log("เลขคู่:", evenNumbers); // [2, 4]
 ### บันทึกผลการทดลอง 2.4.2
 ```html
 [บันทึกโค้ด ที่นี่]
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>แบบทดสอบ 2.4.2 Arrow Function</title>
+</head>
+<body>
+
+    <h2>แบบทดสอบ 2.4.2 (Arrow Function)</h2>
+
+    <!-- BMI -->
+    <h3>คำนวณ BMI</h3>
+    น้ำหนัก (กก.): <input type="number" id="weight"><br><br>
+    ส่วนสูง (เซนติเมตร): <input type="number" id="height"><br><br>
+    <button onclick="handleBMI()">คำนวณ BMI</button>
+
+    <hr>
+
+    <!-- Greeting -->
+    <h3>ทักทายตามอายุ</h3>
+    ชื่อ: <input type="text" id="name"><br><br>
+    อายุ: <input type="number" id="age"><br><br>
+    <button onclick="handleGreeting()">แสดงคำทักทาย</button>
+
+    <hr>
+
+    <!-- Password -->
+    <h3>ตรวจสอบรหัสผ่าน</h3>
+    รหัสผ่าน: <input type="password" id="password"><br><br>
+    <button onclick="handlePassword()">ตรวจสอบ</button>
+
+    <hr>
+
+    <pre id="output"></pre>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
 ```
 **รูปผลการทดลอง**
-![รูปผลการทดลองที่ 2.4.2](images/image.png)
 
+![alt text](images/6-1.png)
+
+![alt text](images/6-2.png)
+
+![alt text](images/6-3.png)
+
+![alt text](images/6-4.png)
 
 ## การทดลองที่ 3 : การใช้ JavaScript กับ HTML และ CSS
 ### การทดลองที่ 3.1 การสร้างปุ่มและจัดการ Event ด้วย JavaScript
