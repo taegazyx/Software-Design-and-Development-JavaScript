@@ -1,34 +1,46 @@
-// 🔹 Arrow Function คำนวณ BMI
-const calculateBMI = (weight, heightCm) => {
-    const heightM = heightCm / 100;   // แปลง cm → m
-    return weight / (heightM * heightM);
-};
+document.getElementById('bookingForm').addEventListener('submit', function(e) {
+    e.preventDefault();
 
-// 🔹 Arrow Function จัดกลุ่มผลลัพธ์
-const getBMICategory = (bmi) => {
-    if (bmi < 18.5) {
-        return "ผอม";
-    } else if (bmi <= 24.9) {
-        return "สมส่วน";
-    } else {
-        return "อ้วน";
-    }
-};
+    const checkin = new Date(document.getElementById('checkin').value);
+    const checkout = new Date(document.getElementById('checkout').value);
+    const today = new Date();
+    today.setHours(0,0,0,0);
 
-// 🔹 ฟังก์ชันควบคุมปุ่ม
-const handleBMI = () => {
-    const weight = parseFloat(document.getElementById("weight").value);
-    const height = parseFloat(document.getElementById("height").value);
-
-    if (!weight || !height) {
-        document.getElementById("result").textContent =
-            "กรุณากรอกข้อมูลให้ครบก่อนนะ";
+    if (checkin < today) {
+        alert('กรุณาเลือกวันเช็คอินที่ยังไม่ผ่านมา');
         return;
     }
 
-    const bmi = calculateBMI(weight, height);
-    const category = getBMICategory(bmi);
+    if (checkout <= checkin) {
+        alert('วันเช็คเอาท์ต้องมาหลังวันเช็คอิน');
+        return;
+    }
 
-    document.getElementById("result").textContent =
-        `ค่า BMI ของคุณคือ ${bmi.toFixed(2)} → ${category}`;
-};
+    const phone = document.getElementById('phone').value;
+    const phoneRegex = /^[0-9]{9}$/;
+
+    if (!phoneRegex.test(phone)) {
+        alert('กรุณากรอกเบอร์โทรศัพท์ให้ถูกต้อง (9 หลัก)');
+        return;
+    }
+
+    const days = Math.ceil((checkout - checkin) / (1000 * 60 * 60 * 24));
+
+    const roomtype = document.getElementById('roomtype');
+    const roomtypeText = roomtype.options[roomtype.selectedIndex].text;
+
+    const summary = `
+สรุปการจอง:
+- ชื่อผู้จอง: ${document.getElementById('fullname').value}
+- ประเภทห้อง: ${roomtypeText}
+- วันที่เข้าพัก: ${checkin.toLocaleDateString('th-TH')}
+- วันที่ออก: ${checkout.toLocaleDateString('th-TH')}
+- จำนวนวันที่พัก: ${days} วัน
+- จำนวนผู้เข้าพัก: ${document.getElementById('guests').value} ท่าน
+`;
+
+    if (confirm(summary + '\n\nยืนยันการจองห้องพัก?')) {
+        alert('จองห้องพักเรียบร้อยแล้ว');
+        this.reset();
+    }
+});
