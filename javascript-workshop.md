@@ -77,6 +77,61 @@ JavaScript สามารถเพิ่มลงในเว็บเพจไ
 ### บันทึกผลการทดลอง 
 ```html
 [บันทึกโค้ด ที่นี่]
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>ทดลอง JavaScript</title>
+</head>
+<body>
+
+    <h2>ทดลองการใช้ JavaScript 3 รูปแบบ</h2>
+
+    <!-- ปุ่มที่ 1: Inline JavaScript -->
+    <button onclick="alert('ชื่อ: จักรกฤษณ์')">ปุ่มที่ 1 (แสดงชื่อ)</button>
+
+    <br><br>
+
+    <!-- ปุ่มที่ 2: Internal JavaScript -->
+    <button id="btn2">ปุ่มที่ 2 (แสดงวันที่)</button>
+
+    <br><br>
+
+    <!-- ปุ่มที่ 3: External JavaScript -->
+    <button onclick="showTime()">ปุ่มที่ 3 (แสดงเวลา)</button>
+
+    <hr>
+
+    <h3>ทดลองกรอกข้อความ</h3>
+
+    <!-- ช่องกรอกข้อความ -->
+    <input type="text" id="myText" placeholder="พิมพ์ข้อความที่นี่">
+
+    <!-- ปุ่มแสดงข้อความ -->
+    <button onclick="showMessage()">แสดงข้อความ</button>
+
+    <p id="result"></p>
+
+    <!-- Internal JavaScript -->
+    <script>
+        // ปุ่มที่ 2 แสดงวันที่ปัจจุบัน
+        document.getElementById("btn2").onclick = function() {
+            let today = new Date();
+            alert("วันที่: " + today.toLocaleDateString());
+        };
+
+        // แสดงข้อความจาก textbox
+        function showMessage() {
+            let text = document.getElementById("myText").value;
+            document.getElementById("result").innerHTML = "ข้อความที่คุณพิมพ์: " + text;
+        }
+    </script>
+
+    <!-- External JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>
 ```
 **รูปผลการทดลอง**
 
