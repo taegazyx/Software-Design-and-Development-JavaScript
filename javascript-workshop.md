@@ -267,9 +267,35 @@ number /= 2;          // เท่ากับ number = number / 2
 ### บันทึกผลการทดลอง 2.2
 ```html
 [บันทึกโค้ด ที่นี่]
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>แบบทดสอบ 2.2</title>
+</head>
+<body>
+
+    <h2>การคำนวณพื้นฐาน</h2>
+
+    <button onclick="calculateAverage()">คำนวณคะแนนเฉลี่ย</button>
+    <br><br>
+
+    <button onclick="calculateVAT()">คำนวณราคาสินค้ารวม VAT</button>
+
+    <hr>
+
+    <pre id="output"></pre>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
 ```
 **รูปผลการทดลอง**
-![รูปผลการทดลองที่ 2.2](images/image.png)
+
+![alt text](images/3-1.png)
+
+![alt text](images/3-2.png)
 
 ### 2.3 การควบคุมการทำงาน
 

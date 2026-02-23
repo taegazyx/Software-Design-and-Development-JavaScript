@@ -1,32 +1,38 @@
-// ประกาศตัวแปร
-const studentId = "68030033";
-const studentName = "จักรกฤษณ์";
-let midtermScore = 25;
-let finalScore = 30;
+// ฟังก์ชันคำนวณคะแนนเฉลี่ย
+function calculateAverage() {
 
-// สร้าง Object เก็บข้อมูลนักศึกษา
-const student = {
-    id: studentId,
-    name: studentName,
-    major: "เทคโนโลยีคอมพิวเตอร์",
-    gpa: 3.62,
-    scores: {
-        midterm: midtermScore,
-        final: finalScore
-    }
-};
+    let score1 = 80;
+    let score2 = 75;
+    let score3 = 90;
 
-// ฟังก์ชันแสดงผลบนหน้าเว็บ
-function showStudentData() {
-    let text = `
-รหัสนักศึกษา: ${student.id}
-ชื่อ: ${student.name}
-สาขาวิชา: ${student.major}
-เกรดเฉลี่ย: ${student.gpa}
-คะแนนกลางภาค: ${student.scores.midterm}
-คะแนนปลายภาค: ${student.scores.final}
+    let average = (score1 + score2 + score3) / 3;
+
+    let result = `
+คะแนนวิชา 1: ${score1}
+คะแนนวิชา 2: ${score2}
+คะแนนวิชา 3: ${score3}
+คะแนนเฉลี่ย: ${average.toFixed(2)}
     `;
 
-    document.getElementById("output").textContent = text;
-    document.body.style.fontSize = "22px";
+    document.getElementById("output").textContent = result;
+}
+
+
+// ฟังก์ชันคำนวณราคาสินค้ารวม VAT 7%
+function calculateVAT() {
+
+    let productName = "โน้ตบุ๊ก";
+    let price = 25000;
+
+    let vat = price * 0.07;
+    let totalPrice = price + vat;
+
+    let result = `
+ชื่อสินค้า: ${productName}
+ราคาสินค้า: ${price} บาท
+VAT 7%: ${vat.toFixed(2)} บาท
+ราคารวม VAT: ${totalPrice.toFixed(2)} บาท
+    `;
+
+    document.getElementById("output").textContent = result;
 }
